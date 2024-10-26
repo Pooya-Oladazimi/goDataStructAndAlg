@@ -1,6 +1,7 @@
 package main
 
 import "fmt"
+import "unicode/utf8"
 
 func main() {
 	araryExp()
@@ -8,30 +9,29 @@ func main() {
 	matrixMuliplyExp()
 }
 
-
-func sliceExp(){
+func sliceExp() {
 	var s1 []int
 	fmt.Println(s1) // empty array. no default value since the slice is empty with length 0.
 
 	s2 := make([]int, 0, 5) // slice with length 0 and capacity 5
 	fmt.Println(s2)
-	
+
 	s3 := make([]int, 2, 5) // slice with length 2 and capacity 5. The first two elements get initiated with the default value 0. --> [0,0]
 	fmt.Println(s3)
-	
-	s4 := []int{1,2,3}
+
+	s4 := []int{1, 2, 3}
 	fmt.Println(s4)
 
 	twoDs := make([][]int, 3) // two dimensional slice with 3 rows. columns count can be anything.
 	fmt.Println(twoDs)
 
 	twoDs2 := [][]int{
-		{1,2,3},
-		{-1,-1,-1,-1,-1},
-	} 	
+		{1, 2, 3},
+		{-1, -1, -1, -1, -1},
+	}
 	fmt.Println(twoDs2)
+  
 }
-
 
 func araryExp() {
 	var arr1 [5]int
