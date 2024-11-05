@@ -1,7 +1,6 @@
-package main
+package arrayslice
 
 import "fmt"
-import "unicode/utf8"
 
 func main() {
 	araryExp()
@@ -30,7 +29,6 @@ func sliceExp() {
 		{-1, -1, -1, -1, -1},
 	}
 	fmt.Println(twoDs2)
-  
 }
 
 func araryExp() {

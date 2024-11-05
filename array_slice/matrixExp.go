@@ -1,4 +1,4 @@
-package main
+package arrayslice
 
 import "fmt"
 
@@ -27,5 +27,4 @@ func matrixMuliplyExp() {
 	}
 
 	fmt.Println(res)
-
 }

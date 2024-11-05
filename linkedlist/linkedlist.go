@@ -1,24 +1,6 @@
-package main
+package linkedlist
 
 import "fmt"
-
-func main() {
-	LL := &LinkedList{head: nil, tail: nil}
-	LL.pprint()
-	LL.add(100, 0)
-	LL.add(200, -1)
-	LL.add(300, -1)
-	LL.add(400, 1)
-	LL.add(420, 2)
-	LL.add(430, 1)
-	LL.add(440, 1)
-	LL.add(500, 1)
-	LL.pprint()
-	LL.delete(-1)
-	LL.delete(0)
-	LL.delete(3)
-	LL.pprint()
-}
 
 type LinkedListNode struct {
 	value int
