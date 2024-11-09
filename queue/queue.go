@@ -10,23 +10,27 @@ type queue[T any] struct {
 	rear  int
 }
 
-func Newqueue[T any](capacity int) *queue[T] {
+func Newqueue[T any](qLength int) *queue[T] {
+	if qLength == -1 {
+		// qLength is -1 means the user did provide any especific length so we assign a big length.
+		qLength = 1000
+	}
 	return &queue[T]{
-		q:     make([]T, capacity),
+		q:     make([]T, qLength),
 		front: -1,
 		rear:  -1,
 	}
 }
 
-func (q *queue[T]) isEmpty() bool {
+func (q *queue[T]) IsEmpty() bool {
 	if q.front == -1 && q.rear == -1 {
 		return true
 	}
 	return false
 }
 
-func (q *queue[T]) enqueue(element T) (T, error) {
-	if q.isEmpty() {
+func (q *queue[T]) Enqueue(element T) (T, error) {
+	if q.IsEmpty() {
 		q.rear = 0
 		q.front = 0
 		q.q[q.rear] = element
@@ -40,9 +44,9 @@ func (q *queue[T]) enqueue(element T) (T, error) {
 	return element, nil
 }
 
-func (q *queue[T]) dequeue() (T, error) {
+func (q *queue[T]) Dequeue() (T, error) {
 	var element T
-	if q.isEmpty() {
+	if q.IsEmpty() {
 		return element, errors.New("queue is empty.")
 	}
 	element = q.q[q.front]
